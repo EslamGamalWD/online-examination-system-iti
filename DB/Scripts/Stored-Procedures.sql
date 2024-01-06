@@ -125,13 +125,13 @@ GO
 -- ****************************STORED PROCEDURES FOR THE Consists_of TABLE****************************
 -- ===================================================================================================
 -- INSERT STATEMENT
-CREATE PROCEDURE st_insertIntoConsistsOf @question_id INT, @choice_id INT, @m_answer NCHAR(1)
+CREATE PROCEDURE st_insertIntoConsistsOf @question_id INT, @choice_id INT
 AS
     SET NOCOUNT ON;
 
 BEGIN TRY
-    INSERT INTO Consists_of (qs_id, ch_id, model_answer)
-    VALUES (@question_id, @choice_id, @m_answer)
+    INSERT INTO Consists_of (qs_id, ch_id)
+    VALUES (@question_id, @choice_id)
 END TRY
 BEGIN CATCH
     SELECT ERROR_NUMBER()    AS ErrorNumber,
@@ -585,13 +585,14 @@ GO
 -- ================================================================================================
 -- INSERT STATEMENT
 CREATE PROCEDURE st_insertIntoQuestion @question_title NVARCHAR(100), @question_type NVARCHAR(20),
-                                       @question_difficulty NVARCHAR(20), @question_grade DECIMAL(4, 2), @course_id INT
+                                       @question_difficulty NVARCHAR(20), @question_grade DECIMAL(4, 2),
+                                       @m_answer NCHAR(1), @course_id INT
 AS
     SET NOCOUNT ON;
 
 BEGIN TRY
-    INSERT INTO Question (qs_title, qs_type, qs_difficulty, qs_grade, crs_id)
-    VALUES (@question_title, @question_type, @question_difficulty, @question_grade, @course_id)
+    INSERT INTO Question (qs_title, qs_type, qs_difficulty, qs_grade, model_answer, crs_id)
+    VALUES (@question_title, @question_type, @question_difficulty, @question_grade, @m_answer, @course_id)
 END TRY
 BEGIN CATCH
     SELECT ERROR_NUMBER()    AS ErrorNumber,
@@ -604,7 +605,8 @@ GO
 
 -- UPDATE STATEMENT
 CREATE PROCEDURE st_updateQuestion @question_id INT, @question_title NVARCHAR(100), @question_type NVARCHAR(20),
-                                   @question_difficulty NVARCHAR(20), @question_grade DECIMAL(4, 2), @course_id INT
+                                   @question_difficulty NVARCHAR(20), @question_grade DECIMAL(4, 2), @m_answer NCHAR(1),
+                                   @course_id INT
 AS
     SET NOCOUNT ON;
 
@@ -614,6 +616,7 @@ BEGIN TRY
         qs_type       = @question_type,
         qs_difficulty = @question_difficulty,
         qs_grade      = @question_grade,
+        model_answer  = @m_answer,
         crs_id        = @course_id
     WHERE qs_id = @question_id
 
@@ -919,6 +922,7 @@ BEGIN TRY
                                         qs_type       NVARCHAR(20),
                                         qs_difficulty NVARCHAR(20),
                                         qs_grade      DECIMAL(4, 2),
+                                        model_answer  NCHAR(1),
                                         crs_id        INT
                                     )
         DECLARE @summary_other TABLE
@@ -929,6 +933,7 @@ BEGIN TRY
                                    qs_type       NVARCHAR(20),
                                    qs_difficulty NVARCHAR(20),
                                    qs_grade      DECIMAL(4, 2),
+                                   model_answer  NCHAR(1),
                                    crs_id        INT
                                )
         DECLARE @summary_final TABLE
@@ -938,6 +943,7 @@ BEGIN TRY
                                    qs_type       NVARCHAR(20),
                                    qs_difficulty NVARCHAR(20),
                                    qs_grade      DECIMAL(4, 2),
+                                   model_answer  NCHAR(1),
                                    crs_id        INT
                                )
 
