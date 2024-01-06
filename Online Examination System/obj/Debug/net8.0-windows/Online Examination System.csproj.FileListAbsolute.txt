@@ -1,0 +1,20 @@
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\bin\Debug\net8.0-windows\Online Examination System.exe
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\bin\Debug\net8.0-windows\Online Examination System.deps.json
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\bin\Debug\net8.0-windows\Online Examination System.runtimeconfig.json
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\bin\Debug\net8.0-windows\Online Examination System.dll
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\bin\Debug\net8.0-windows\Online Examination System.pdb
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\App.g.cs
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System_MarkupCompile.cache
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System_MarkupCompile.lref
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\MainWindow.baml
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.g.resources
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.AssemblyInfoInputs.cache
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.AssemblyInfo.cs
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.csproj.CoreCompileInputs.cache
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.dll
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\refint\Online Examination System.dll
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.pdb
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\Online Examination System.genruntimeconfig.cache
+D:\Study Material\Projects\ITI\Online Examination System\Online Examination System\obj\Debug\net8.0-windows\ref\Online Examination System.dll
