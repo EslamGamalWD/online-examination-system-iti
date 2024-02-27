@@ -1,0 +1,35 @@
+﻿@model CurrentExamViewModel
+
+@{
+    Layout = "~/Views/Shared/StudentLayout/_Layout.cshtml";
+    var i = 0;
+    var radioBtnGroup = "question";
+}
+
+<form method="post">
+    @foreach (var question in Model.Questions)
+    {
+        i++;
+        radioBtnGroup = $"{radioBtnGroup}{i}";
+        
+        <div class="question shadow bg-white rounded">
+            <p class="qs-number">Question @i</p>
+            <p class="qs-title">@question.Question.QsTitle</p>
+            <div class="dpx">
+                <div class="py">
+                    @foreach (var choice in question.Question.MultipleChoices)
+                    {
+                        <label>
+                            <input type="radio" class="option-input radio" name=@radioBtnGroup/>
+                            @choice.ChTitle
+                        </label>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="finish d-grid">
+        <input name="finish" type="submit" value="Submit" class="btn btn-dark btn-lg"/>
+    </div>
+</form>
