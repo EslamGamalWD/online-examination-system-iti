@@ -45,7 +45,8 @@ public class CurrentExamController : Controller
         }
         catch (Exception e)
         {
-            return View(exam);
+            Exam? showedExam = _examRepository.GetExamById(exam.ExId);
+            return View(showedExam);
         }
         
         return RedirectToAction("Index","Result");
