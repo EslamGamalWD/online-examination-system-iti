@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExaminationDAL.Entities;
+namespace Examination.DAL.Entities;
 
 public partial class Question
 {

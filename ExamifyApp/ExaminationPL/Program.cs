@@ -1,9 +1,8 @@
 using ExaminationBLL.Feature.Interface;
 using ExaminationBLL.Feature.Repository;
-using ExaminationBLL.Mapping.DepartmentMapp;
+// using ExaminationBLL.Mapping.DepartmentMapp;
 using ExaminationDAL.Context;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,11 +17,10 @@ builder.Services.AddSession();
 
 //Scope
 builder.Services.AddScoped<IExamRepository, ExamRepository>();
-builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
-builder.Services.AddScoped<ILoginRepo, LoginManager>();
-builder.Services.AddScoped<DepartmentMapper>();
-builder.Services.AddScoped<IDepartmentRepo, DepartmentManager>();
-builder.Services.AddScoped<IpreExam, PreExamManager>();
+// builder.Services.AddScoped<ILoginRepo, LoginManager>();
+// builder.Services.AddScoped<DepartmentMapper>();
+// builder.Services.AddScoped<IDepartmentRepo, DepartmentManager>();
+// builder.Services.AddScoped<IpreExam, PreExamManager>();
 
 
 
@@ -46,6 +44,6 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}");
+    pattern: "{controller=CurrentExam}/{action=Index}/{id=18}");
 
 app.Run();

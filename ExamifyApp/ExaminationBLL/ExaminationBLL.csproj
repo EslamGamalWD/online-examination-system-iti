@@ -18,6 +18,7 @@
     <Folder Include="Mapping\TopicMapp\" />
     <Folder Include="Mapping\QuestionMapp\" />
     <Folder Include="Mapping\StudentMapp\" />
+    <Folder Include="ModelVM\ExamVM\" />
   </ItemGroup>
 
 </Project>

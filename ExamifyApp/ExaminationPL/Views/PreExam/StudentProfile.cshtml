@@ -1,6 +1,5 @@
-﻿@using ExaminationDAL.Entities;
-
-@model Student
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Examination.DAL.Entities.Student
 @{
     ViewData["Title"] = "StudentProfile";
     Layout = null;
@@ -56,67 +55,76 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <nav aria-label="breadcrumb" class="main-breadcrumb">
-                    
-                    <br />
-                </nav>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+
+                <br/>
+            </nav>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="~/StudentsImages/@Model.StImg" alt="User Avatar" class="user-avatar">
-                        <h4>@Model.St.UserFname @Model.St.UserLname</h4>
-                        <p class="text-secondary">Full Stack Developer</p>  
-                        <a asp-controller="PreExam" asp-action="PreExamView" class="btn btn-primary">Exam Page</a>
-                        <br />
-                    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="~/StudentsImages/@Model.StImg" alt="User Avatar" class="user-avatar">
+                    <h4>@Model.St.UserFname @Model.St.UserLname</h4>
+                    <p class="text-secondary">Full Stack Developer</p>
+                    @* <a asp-controller="PreExam" asp-action="PreExamView" class="btn btn-primary">Exam Page</a> *@
+                    <br/>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-sm-3"><h6 class="mb-0">Full Name</h6></div>
-                            <div class="col-sm-9 text-secondary">@Model.St.UserFname @Model.St.UserLname</div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Full Name</h6>
                         </div>
-                        <hr>
-                        <div class="row mb-3">
-                            <div class="col-sm-3"><h6 class="mb-0">Email</h6></div>
-                            <div class="col-sm-9 text-secondary">@Model.St.EmailAddress</div>
-                        </div>
-                        <hr>
-                        <div class="row mb-3">
-                            <div class="col-sm-3"><h6 class="mb-0">City</h6></div>
-                            <div class="col-sm-9 text-secondary">@Model.StAddress</div>
-                        </div>
-                        <hr>
-                        <div class="row mb-3">
-                            <div class="col-sm-3"><h6 class="mb-0">Department</h6></div>
-                            <div class="col-sm-9 text-secondary">@Model.Dept.DeptName</div>
-                        </div>
-                        <hr>
-                        <div class="row mb-3">
-                            <div class="col-sm-3"><h6 class="mb-0">Number Of Courses</h6></div>
-                            <div class="col-sm-9 text-secondary">@Model.Crs.Count</div>
-                        </div>
-                        <hr>
-                      
+                        <div class="col-sm-9 text-secondary">@Model.St.UserFname @Model.St.UserLname</div>
                     </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">@Model.St.EmailAddress</div>
+                    </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">City</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">@Model.StAddress</div>
+                    </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Department</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">@Model.Dept.DeptName</div>
+                    </div>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Number Of Courses</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">@Model.Crs.Count</div>
+                    </div>
+                    <hr>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>
 
 
 @* <div class="container">

@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
-using ExaminationDAL.Entities;
+using Examination.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace ExaminationDAL.Context;
 

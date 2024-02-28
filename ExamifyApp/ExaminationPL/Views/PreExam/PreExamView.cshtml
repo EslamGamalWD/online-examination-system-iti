@@ -1,6 +1,7 @@
 ﻿@using ExaminationDAL.Entities;
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 
-@model Exam
+@model Examination.DAL.Entities.Exam
 
 @{
     ViewData["Title"] = "PreExamView";
@@ -109,7 +110,7 @@
                 </div>
                 <div class="text-center">
                     <a asp-controller="CurrentExam" asp-action="Index" asp-route-id="@Model.ExId" class="btn btn-start-exam">Start Exam</a>
-                    <a asp-controller="PreExam" asp-action="StudentProfile" class="btn btn-start-exam">Profile</a>
+                    @* <a asp-controller="PreExam" asp-action="StudentProfile" class="btn btn-start-exam">Profile</a> *@
                 </div>
             </div>
         </div>

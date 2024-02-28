@@ -1,10 +1,4 @@
-﻿using ExaminationDAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExaminationDAL.Entities;
+﻿using Examination.DAL.Entities;
 
 namespace ExaminationBLL.ModelVM.StudentPreExamVM
 {

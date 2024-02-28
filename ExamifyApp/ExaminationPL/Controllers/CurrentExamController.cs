@@ -1,5 +1,6 @@
-﻿using ExaminationBLL.Feature.Interface;
-using ExaminationBLL.ModelVM.ExamVM;
+﻿using Examination.DAL.Entities;
+using ExaminationBLL.Feature.Interface;
+using ExaminationDAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExaminationPL.Controllers;
@@ -7,22 +8,46 @@ namespace ExaminationPL.Controllers;
 public class CurrentExamController : Controller
 {
     private readonly IExamRepository _examRepository;
-    private readonly IQuestionRepository _questionRepository;
 
-    public CurrentExamController(IExamRepository examRepository, IQuestionRepository questionRepository)
+    public CurrentExamController(IExamRepository examRepository)
     {
         _examRepository = examRepository;
-        _questionRepository = questionRepository;
     }
 
-    public IActionResult ShowExam(int id)
+    public IActionResult Index(int id)
     {
         var exam = _examRepository.GetExamById(id);
         if (exam is null)
             return NotFound();
+
+        return View(exam);
+    }
+
+    [HttpPost]
+    public IActionResult Index(Exam exam)
+    {
+        try
+        {
+            List<int?> answers = [null, null, null, null, null, null, null, null, null, null];
+            var count = 0;
+            foreach (var include in exam.Includes)
+            {
+                if (include.StAnswer is not null)
+                    answers[count] = include.StAnswer;
+                count++;
+            }
+
+            _examRepository.StoreStudentExamAnswers(exam.ExId, "Jane Smith", answers[0], answers[1],
+                answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8],
+                answers[9]);
+
+            _examRepository.CorrectExam(exam.ExId, "Jane Smith");
+        }
+        catch (Exception e)
+        {
+            return View(exam);
+        }
         
-        var questions = _questionRepository.GetAllQuestionsByExamId(id);
-        CurrentExamViewModel currentExamViewModel = new(exam, questions);
-        return View(currentExamViewModel);
+        return View(exam);
     }
 }
