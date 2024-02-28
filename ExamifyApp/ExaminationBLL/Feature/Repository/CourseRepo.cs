@@ -85,7 +85,7 @@ namespace ExaminationBLL.Feature.Repository
 
             foreach (var item in insertCourseVM.Topics)
             {
-                // Use parameters to prevent SQL injection
+               
                 Db.Database.ExecuteSqlRaw("INSERT INTO Topic (topic_name, crs_id) VALUES (@topicName, @crsId)",
                     new SqlParameter("@topicName", item.TopicName),
                     new SqlParameter("@crsId", lastcourse.CrsId));
