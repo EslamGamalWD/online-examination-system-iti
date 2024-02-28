@@ -1,61 +1,56 @@
-﻿@* @using ExaminationBLL.ModelVM.Department *@
-@* *@
-@* @model List<DepartmentVM> *@
-@* @{ *@
-@*     ViewData["Title"] = "DisplayDepartments"; *@
-@*     Layout = "~/Views/Shared/Admin/_Layout.cshtml"; *@
-@* } *@
-@* *@
-@* *@
-@* <h1>Departments</h1> *@
-@* <a asp-controller="Department" asp-action ="Create" class="btn btn-primary"> Add Department </a> *@
-@* <table id="myTable" class="display"> *@
-@*     <thead> *@
-@*         <tr> *@
-@*             <th>ID</th> *@
-@*             <th>Department Name</th> *@
-@*             <th>Department Description</th> *@
-@*             <th>Department Location</th> *@
-@*             <th>Department Manager ID</th> *@
-@*             <th>Number of Students</th> *@
-@*             <th>Number of Instructors</th> *@
-@*             <th>Actions</th> *@
-@* *@
-@*         </tr> *@
-@*     </thead> *@
-@*     <tbody> *@
-@*         @foreach (var department in Model) *@
-@*         { *@
-@*             <tr> *@
-@*                 <td>@department.DeptId</td> *@
-@*                 <td>@department.DeptName</td> *@
-@*                 <td>@department.DeptDesc</td> *@
-@*                 <td>@department.DeptLocation</td> *@
-@*                 <td>@department.DeptMgrId</td> *@
-@*                 <td>@department.NumberOfStudents</td> *@
-@*                 <td>@department.NumberOfInstructors</td> *@
-@*                 <td class="dropdown"> *@
-@* *@
-@*                     <button class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> *@
-@*                         <i class="fa-sharp fa-solid fa-bars"></i> *@
-@*                     </button> *@
-@*                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1"> *@
-@*                         <li><a class="dropdown-item" asp-action="GetEmployeeById" asp-controller="Department" asp-route-id="@department.DeptId">Select</a></li> *@
-@*                         <li><a class="dropdown-item" asp-action="Edit" asp-controller="Department" asp-route-id="@department.DeptId">Edit</a></li> *@
-@*                         $1$ <li><a class="dropdown-item" asp-action="DeleteInstructorByID" asp-controller="Student" asp-route-id="@department.DeptId">Delete</a></li> #1# *@
-@*                     </ul> *@
-@* *@
-@*                 </td> *@
-@*             </tr> *@
-@*         } *@
-@*     </tbody> *@
-@* </table> *@
-@* *@
-@* @section JS { *@
-@*     <script> *@
-@*         $(document).ready(function () { *@
-@*             $('#myTable').DataTable(); *@
-@*         }) *@
-@*     </script> *@
-@* } *@
-@* *@
+﻿
+@model List<DepartmentVM>
+@{
+    ViewData["Title"] = "DisplayDepartments";
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+<h1>Departments</h1>
+<a asp-controller="Department" asp-action="Create" class="btn btn-dark btn-lg" > Add Department </a>
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Department Name</th>
+            <th>Department Description</th>
+            <th>Department Location</th>
+            <th>Department Manager ID</th>
+            <th>Number of Students</th>
+            <th>Number of Instructors</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.DeptId</td>
+                <td>@department.DeptName</td>
+                <td>@department.DeptDesc</td>
+                <td>@department.DeptLocation</td>
+                <td>@department.DeptMgrId</td>
+                <td>@department.NumberOfStudents</td>
+                <td>@department.NumberOfInstructors</td>
+                <td class="dropdown">
+                    <button class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-sharp fa-solid fa-bars"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" asp-action="GetEmployeeById" asp-controller="Department" asp-route-id="@department.DeptId">Select</a></li>
+                        <li><a class="dropdown-item" asp-action="Edit" asp-controller="Department" asp-route-id="@department.DeptId">Edit</a></li>
+                      
+                        <li><a class="dropdown-item" asp-action="Delete" asp-controller="Department" asp-route-id="@department.DeptId">Delete</a></li> 
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section JS {
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        })
+    </script>
+}
+

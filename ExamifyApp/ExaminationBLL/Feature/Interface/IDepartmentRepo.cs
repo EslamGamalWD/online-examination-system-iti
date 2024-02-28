@@ -22,5 +22,7 @@ namespace ExaminationBLL.Feature.Interface
        int GetCountOfInstructors(Department department);
 
         void UpdateDepartment(DepartmentVM department);
+
+        void DeleteDepartment(DepartmentVM department);
     }
 }

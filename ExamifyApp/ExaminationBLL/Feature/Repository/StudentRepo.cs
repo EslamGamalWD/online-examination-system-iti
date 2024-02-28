@@ -39,7 +39,7 @@ namespace ExaminationBLL.Feature.Repository
             return studentMap.Mapp(students);
         }
 
-        public GetStudentByIdVM GetStudentById(int Id)
+        public GetStudentByIdVM GetStudentById(int? Id)
         {
             var student = applicationDbContext.Students.Where(a => a.StId == Id).Include(a => a.Dept).FirstOrDefault();
             student.St = applicationDbContext.Users.Where(user => user.UserId == student.StId).FirstOrDefault();

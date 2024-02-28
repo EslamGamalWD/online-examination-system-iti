@@ -15,9 +15,9 @@ namespace ExaminationBLL.Feature.Repository
     public class GetExamResultRepo : IGetExamResultRepo
     {
         private readonly ApplicationDbContext Db;
-        public GetExamResultRepo()
+        public GetExamResultRepo(ApplicationDbContext _Db)
         {
-           this.Db = new ApplicationDbContext();
+            this.Db = _Db;
         }
 
         public StudentResultVM Get(int examID, int? studentID)

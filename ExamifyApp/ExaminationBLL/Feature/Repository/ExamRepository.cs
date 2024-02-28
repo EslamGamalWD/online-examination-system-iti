@@ -30,4 +30,6 @@ public class ExamRepository : IExamRepository
     public int CorrectExam(int examId, string stName)
         => _applicationDbContext.Database.ExecuteSql(
             $"st_correctExam @exam_id={examId}, @student_name={stName}");
+
+    
 }

@@ -8,10 +8,12 @@ namespace ExaminationPL.Controllers;
 public class CurrentExamController : Controller
 {
     private readonly IExamRepository _examRepository;
+    private readonly IStudentRepo _studentRepo;
 
-    public CurrentExamController(IExamRepository examRepository)
+    public CurrentExamController(IExamRepository examRepository, IStudentRepo studentRepo)
     {
         _examRepository = examRepository;
+        _studentRepo = studentRepo;
     }
 
     public IActionResult Index(int id)
@@ -26,6 +28,10 @@ public class CurrentExamController : Controller
     [HttpPost]
     public IActionResult Index(Exam exam)
     {
+        int? userId = HttpContext.Session.GetInt32("UserId");
+        int? roleID = HttpContext.Session.GetInt32("RoleId");
+
+        var student = _studentRepo.GetStudentById(userId);
         try
         {
             List<int?> answers = [null, null, null, null, null, null, null, null, null, null];
@@ -37,11 +43,11 @@ public class CurrentExamController : Controller
                 count++;
             }
 
-            _examRepository.StoreStudentExamAnswers(exam.ExId, "Jane Smith", answers[0], answers[1],
+            _examRepository.StoreStudentExamAnswers(exam.ExId, $"{student.UserFname} {student.UserLname}", answers[0], answers[1],
                 answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8],
                 answers[9]);
 
-            _examRepository.CorrectExam(exam.ExId, "Emily White");
+            _examRepository.CorrectExam(exam.ExId, student.UserName);
         }
         catch (Exception e)
         {
@@ -49,6 +55,6 @@ public class CurrentExamController : Controller
             return View(showedExam);
         }
         
-        return RedirectToAction("Index","Result");
+        return RedirectToAction("Index","Result", new {id = exam.ExId});
     }
 }

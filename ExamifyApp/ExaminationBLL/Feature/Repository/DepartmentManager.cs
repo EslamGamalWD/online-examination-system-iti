@@ -76,5 +76,11 @@ namespace ExaminationBLL.Feature.Repository
             //_context.SaveChanges();
         }
 
+        public void DeleteDepartment(DepartmentVM department)
+        {
+            _context.Database.ExecuteSql($"Exec [st_deleteFromDepartment] {department.DeptId}");
+            _context.SaveChanges();
+        }
+
     }
 }

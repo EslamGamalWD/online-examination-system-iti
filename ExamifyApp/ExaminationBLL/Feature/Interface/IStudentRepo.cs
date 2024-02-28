@@ -12,7 +12,7 @@ namespace ExaminationBLL.Feature.Interface
 
         void InsertStudent(InsertStudentVM insertStudentVM);
         void Edit(EditStudentVM editStudentVM);
-        GetStudentByIdVM GetStudentById(int Id);
+        GetStudentByIdVM GetStudentById(int? Id);
         EditStudentVM GetStudentDataById(int id);
     }
 }

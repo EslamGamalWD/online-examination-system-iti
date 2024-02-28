@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExaminationBLL.ModelVM.ExamVM;
 
 namespace ExaminationBLL.ModelVM.GenerateVM
 {
@@ -16,10 +17,11 @@ namespace ExaminationBLL.ModelVM.GenerateVM
         public int CourseID { get; set; }
        
         [CheckDecimal]
-
+        [TotalQuestionCountAttribute(ErrorMessage = "Number of Qustions T/F and Multiple Choice must be ten")]
         public string trueOrFalseCounnt { get; set; }
         [CheckDecimal]
 
+        [TotalQuestionCountAttribute(ErrorMessage = "Number of Qustions T/F and Multiple Choice must be ten")]
         public string otherQuestionCount { get; set; }
         public List<StudentGenerateExamVM>? StId { get; set; }
        

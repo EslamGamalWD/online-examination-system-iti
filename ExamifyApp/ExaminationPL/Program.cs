@@ -1,5 +1,7 @@
 using ExaminationBLL.Feature.Interface;
 using ExaminationBLL.Feature.Repository;
+using ExaminationBLL.Mapping.DepartmentMapp;
+
 // using ExaminationBLL.Mapping.DepartmentMapp;
 using ExaminationDAL.Context;
 using Microsoft.EntityFrameworkCore;
@@ -13,17 +15,17 @@ builder.Services.AddControllersWithViews();
 
 
 //Session
-//builder.Services.AddSession();
+builder.Services.AddSession();
 
 //Scope
 builder.Services.AddScoped<IExamRepository, ExamRepository>();
-// builder.Services.AddScoped<ILoginRepo, LoginManager>();
-// builder.Services.AddScoped<DepartmentMapper>();
+builder.Services.AddScoped<ILoginRepo, LoginManager>();
+builder.Services.AddScoped<DepartmentMapper>();
 builder.Services.AddScoped<IDepartmentRepo, DepartmentManager>();
 //
 builder.Services.AddScoped<ICourseRepo, CourseRepo>();
 builder.Services.AddScoped<IExamRepo, ExamRepo>();
-// builder.Services.AddScoped<IpreExam, PreExamManager>();
+builder.Services.AddScoped<IpreExam, PreExamManager>();
 builder.Services.AddScoped<IStudentRepo, StudentRepo>();
 builder.Services.AddScoped(typeof(IInstructorRepo), typeof(InstructorRepo));
 builder.Services.AddScoped(typeof(IGenerateExamRepo), typeof(GenerateExamRepo));
@@ -46,10 +48,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-//app.UseSession();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=CurrentExam}/{action=Index}/{id=18}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
