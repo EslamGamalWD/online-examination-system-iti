@@ -13,13 +13,16 @@ builder.Services.AddControllersWithViews();
 
 
 //Session
-builder.Services.AddSession();
+//builder.Services.AddSession();
 
 //Scope
 builder.Services.AddScoped<IExamRepository, ExamRepository>();
 // builder.Services.AddScoped<ILoginRepo, LoginManager>();
 // builder.Services.AddScoped<DepartmentMapper>();
 builder.Services.AddScoped<IDepartmentRepo, DepartmentManager>();
+//
+builder.Services.AddScoped<ICourseRepo, CourseRepo>();
+builder.Services.AddScoped<IExamRepo, ExamRepo>();
 // builder.Services.AddScoped<IpreExam, PreExamManager>();
 builder.Services.AddScoped<IStudentRepo, StudentRepo>();
 builder.Services.AddScoped(typeof(IInstructorRepo), typeof(InstructorRepo));
@@ -43,7 +46,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.UseSession();
+//app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

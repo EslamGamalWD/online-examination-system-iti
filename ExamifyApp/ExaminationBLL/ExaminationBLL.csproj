@@ -13,10 +13,8 @@
 
   <ItemGroup>
     <Folder Include="Mapping\InstractorMapp\" />
-    <Folder Include="Mapping\ExamMapp\" />
     <Folder Include="Mapping\TopicMapp\" />
     <Folder Include="Mapping\QuestionMapp\" />
-    <Folder Include="ModelVM\ExamVM\" />
   </ItemGroup>
 
   <ItemGroup>
