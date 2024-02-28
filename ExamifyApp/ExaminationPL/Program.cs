@@ -19,9 +19,12 @@ builder.Services.AddSession();
 builder.Services.AddScoped<IExamRepository, ExamRepository>();
 // builder.Services.AddScoped<ILoginRepo, LoginManager>();
 // builder.Services.AddScoped<DepartmentMapper>();
-// builder.Services.AddScoped<IDepartmentRepo, DepartmentManager>();
+builder.Services.AddScoped<IDepartmentRepo, DepartmentManager>();
 // builder.Services.AddScoped<IpreExam, PreExamManager>();
-
+builder.Services.AddScoped<IStudentRepo, StudentRepo>();
+builder.Services.AddScoped(typeof(IInstructorRepo), typeof(InstructorRepo));
+builder.Services.AddScoped(typeof(IGenerateExamRepo), typeof(GenerateExamRepo));
+builder.Services.AddScoped(typeof(IGetExamResultRepo), typeof(GetExamResultRepo));
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

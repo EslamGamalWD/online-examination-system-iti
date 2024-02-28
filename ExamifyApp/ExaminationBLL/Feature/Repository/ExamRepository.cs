@@ -1,4 +1,4 @@
-﻿using Examination.DAL.Entities;
+﻿using ExaminationDAL.Entities;
 using ExaminationDAL.Context;
 using ExaminationBLL.Feature.Interface;
 using Microsoft.EntityFrameworkCore;

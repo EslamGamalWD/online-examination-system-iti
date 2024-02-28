@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Examination.DAL.Entities;
+using ExaminationDAL.Entities;
 
-namespace ExaminationBLL.ModelVM.Department
+namespace ExaminationBLL.ModelVM.DepartmentModelVM
 {
     public class DepartmentVM
     {

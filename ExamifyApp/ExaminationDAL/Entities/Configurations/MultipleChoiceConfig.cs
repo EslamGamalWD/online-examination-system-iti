@@ -1,4 +1,4 @@
-﻿using Examination.DAL.Entities;
+﻿using ExaminationDAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

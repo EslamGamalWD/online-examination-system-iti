@@ -18,9 +18,14 @@
 
   <ItemGroup>
     <None Include="appsettings.json" />
+    <None Include="Views\Result\Index.cshtml" />
     <None Include="wwwroot\css\.DS_Store" />
     <None Include="wwwroot\fonts\.DS_Store" />
     <None Include="wwwroot\images\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\Imgs\" />
   </ItemGroup>
 
 </Project>

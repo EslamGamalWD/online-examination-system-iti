@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Examination.DAL.Entities;
+namespace ExaminationDAL.Entities;
 
 public partial class Role
 {

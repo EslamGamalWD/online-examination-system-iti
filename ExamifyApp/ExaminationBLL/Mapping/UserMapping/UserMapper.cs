@@ -1,5 +1,5 @@
 ﻿using ExaminationBLL.ModelVM.UserVM;
-using Examination.DAL.Entities;
+using ExaminationDAL.Entities;
 
 namespace ExaminationBLL.Mapping.UserMapping
 {

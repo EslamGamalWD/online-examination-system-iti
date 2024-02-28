@@ -12,13 +12,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helper\" />
     <Folder Include="Mapping\InstractorMapp\" />
     <Folder Include="Mapping\ExamMapp\" />
     <Folder Include="Mapping\TopicMapp\" />
     <Folder Include="Mapping\QuestionMapp\" />
-    <Folder Include="Mapping\StudentMapp\" />
     <Folder Include="ModelVM\ExamVM\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,49 @@
+﻿
+   
+            <script>
+
+
+            new DataTable('#myTable', {
+                layout: {
+                    topStart: {
+                        buttons: ['print']
+                    }
+                }
+            });
+
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.buttons-print').css({
+                'background-color': 'black',
+                'border': 'none',
+                'border-radius': '5px',
+                'color': 'white',
+                'padding': '10px'
+            });
+
+            $('.dt-search label').css({
+
+                'background-color': 'black',
+                'border': 'none',
+                'border-radius': '5px',
+                'color': 'white',
+                'padding': '10px'
+
+            });
+            $('.dt-input').css({
+                'visibility': 'hidden'
+            });
+            $('.dt-search label').click(function () {
+                $('.dt-input').css({
+                    'visibility': 'visible'
+                });
+            });
+        });
+
+
+
+    </script>
+    

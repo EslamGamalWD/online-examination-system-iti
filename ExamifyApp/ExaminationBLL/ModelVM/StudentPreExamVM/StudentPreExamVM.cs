@@ -1,4 +1,4 @@
-﻿using Examination.DAL.Entities;
+﻿using ExaminationDAL.Entities;
 
 namespace ExaminationBLL.ModelVM.StudentPreExamVM
 {

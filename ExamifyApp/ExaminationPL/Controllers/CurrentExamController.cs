@@ -1,4 +1,4 @@
-﻿using Examination.DAL.Entities;
+﻿using ExaminationDAL.Entities;
 using ExaminationBLL.Feature.Interface;
 using ExaminationDAL.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -41,13 +41,13 @@ public class CurrentExamController : Controller
                 answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8],
                 answers[9]);
 
-            _examRepository.CorrectExam(exam.ExId, "Jane Smith");
+            _examRepository.CorrectExam(exam.ExId, "Emily White");
         }
         catch (Exception e)
         {
             return View(exam);
         }
         
-        return View(exam);
+        return RedirectToAction("Index","Result");
     }
 }

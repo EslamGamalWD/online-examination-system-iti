@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Examination.DAL.Entities;
+using ExaminationDAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExaminationDAL.Context;
