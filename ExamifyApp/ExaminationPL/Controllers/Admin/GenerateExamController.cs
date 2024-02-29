@@ -13,18 +13,32 @@ namespace ExaminationPLL.Controllers.Admin
         }
         public IActionResult Index(int id)
         {
-            var Data = generateExamRepo.Get(id);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                var Data = generateExamRepo.Get(id);
             return View(Data);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
         [HttpPost]
         public IActionResult Index(GenerateExam generateExam)
         {
-            if(ModelState.IsValid)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (ModelState.IsValid)
             {
                 generateExamRepo.Generate(generateExam);
                 return RedirectToAction("getAll", "Student");
             }
             return View(generateExam);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
     }
 }

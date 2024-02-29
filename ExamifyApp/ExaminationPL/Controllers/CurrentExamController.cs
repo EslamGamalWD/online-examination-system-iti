@@ -2,6 +2,7 @@
 using ExaminationBLL.Feature.Interface;
 using ExaminationDAL.Entities;
 using Microsoft.AspNetCore.Mvc;
+using ExaminationBLL.ModelVM.UserVM;
 
 namespace ExaminationPL.Controllers;
 
@@ -18,11 +19,17 @@ public class CurrentExamController : Controller
 
     public IActionResult Index(int id)
     {
-        var exam = _examRepository.GetExamById(id);
+        int? UserId = HttpContext.Session.GetInt32("UserId");
+        int? RoleID = HttpContext.Session.GetInt32("RoleId");
+        if (UserId != null && RoleID==2)
+        {
+            var exam = _examRepository.GetExamById(id);
         if (exam is null)
             return NotFound();
 
         return View(exam);
+        }
+        return RedirectToAction("Login", "Account");
     }
 
     [HttpPost]
@@ -30,31 +37,35 @@ public class CurrentExamController : Controller
     {
         int? userId = HttpContext.Session.GetInt32("UserId");
         int? roleID = HttpContext.Session.GetInt32("RoleId");
-
-        var student = _studentRepo.GetStudentById(userId);
-        try
+        if (userId != null && roleID==2)
         {
-            List<int?> answers = [null, null, null, null, null, null, null, null, null, null];
-            var count = 0;
-            foreach (var include in exam.Includes)
+            var student = _studentRepo.GetStudentById(userId);
+            try
             {
-                if (include.StAnswer is not null)
-                    answers[count] = include.StAnswer;
-                count++;
+                List<int?> answers = [null, null, null, null, null, null, null, null, null, null];
+                var count = 0;
+                foreach (var include in exam.Includes)
+                {
+                    if (include.StAnswer is not null)
+                        answers[count] = include.StAnswer;
+                    count++;
+                }
+
+                _examRepository.StoreStudentExamAnswers(exam.ExId, $"{student.UserFname} {student.UserLname}", answers[0], answers[1],
+                    answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8],
+                    answers[9]);
+
+                _examRepository.CorrectExam(exam.ExId, student.UserName);
+            }
+            catch (Exception e)
+            {
+                Exam? showedExam = _examRepository.GetExamById(exam.ExId);
+                return View(showedExam);
             }
 
-            _examRepository.StoreStudentExamAnswers(exam.ExId, $"{student.UserFname} {student.UserLname}", answers[0], answers[1],
-                answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8],
-                answers[9]);
+            return RedirectToAction("Index", "Result", new { id = exam.ExId });
+        }
+        return RedirectToAction("Login", "Account");
 
-            _examRepository.CorrectExam(exam.ExId, student.UserName);
-        }
-        catch (Exception e)
-        {
-            Exam? showedExam = _examRepository.GetExamById(exam.ExId);
-            return View(showedExam);
-        }
-        
-        return RedirectToAction("Index","Result", new {id = exam.ExId});
     }
 }

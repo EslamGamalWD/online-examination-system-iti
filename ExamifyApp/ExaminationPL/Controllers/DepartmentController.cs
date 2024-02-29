@@ -3,6 +3,7 @@ using ExaminationBLL.Feature.Interface;
 using ExaminationBLL.Mapping.DepartmentMapp;
 using Microsoft.AspNetCore.Mvc;
 using ExaminationBLL.ModelVM.DepartmentModelVM;
+using ExaminationBLL.ModelVM.UserVM;
 
 namespace ExaminationPL.Controllers
 {
@@ -19,24 +20,45 @@ namespace ExaminationPL.Controllers
 
         public IActionResult DisplayDepartments()
         {
-            List<DepartmentVM> departments = new List<DepartmentVM>();
-            departments = _departmentRepo.GetAllDepartments();
-            return View("DisplayDepartments", departments);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                List<DepartmentVM> departments = new List<DepartmentVM>();
+                departments = _departmentRepo.GetAllDepartments();
+                return View("DisplayDepartments", departments);
+
+            }
+            return RedirectToAction("Login", "Account");
+
         }
 
         public IActionResult GetEmployeeById(int id)
         {
-            var department = _departmentRepo.GetById(id);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                var department = _departmentRepo.GetById(id);
             return View("GetEmployeeById", department);
+            }
+            return RedirectToAction("Login", "Account");
         }
 
         public IActionResult Create()
         {
-            var departmentVM = new DepartmentVM()
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
             {
-                Instructors = _departmentRepo.GetAllInstructors()
-            };
-            return View("Create", departmentVM);
+                var departmentVM = new DepartmentVM()
+                {
+                    Instructors = _departmentRepo.GetAllInstructors()
+                };
+                return View("Create", departmentVM);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
 
 
@@ -44,29 +66,41 @@ namespace ExaminationPL.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(DepartmentVM department)
         {
-            if (!ModelState.IsValid)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
             {
-                department.Instructors = _departmentRepo.GetAllInstructors();
-                return View(department);
+                if (!ModelState.IsValid)
+                {
+                    department.Instructors = _departmentRepo.GetAllInstructors();
+                    return View(department);
+                }
+
+                var departmentEntity = new Department
+                {
+                    DeptName = department.DeptName,
+                    DeptDesc = department.DeptDesc,
+                    DeptLocation = department.DeptLocation,
+                    DeptMgrId = department.DeptMgrId,
+                    MgrHireDate = department.MgrHireDate
+                };
+
+                _departmentRepo.AddDepartment(departmentEntity);
+
+                return RedirectToAction(nameof(DisplayDepartments));
             }
+            return RedirectToAction("Login", "Account");
 
-            var departmentEntity = new Department
-            {
-                DeptName = department.DeptName,
-                DeptDesc = department.DeptDesc,
-                DeptLocation = department.DeptLocation,
-                DeptMgrId = department.DeptMgrId,
-                MgrHireDate = department.MgrHireDate
-            };
-
-            _departmentRepo.AddDepartment(departmentEntity);
-
-            return RedirectToAction(nameof(DisplayDepartments));
+        
         }
 
         public IActionResult Edit(int id)
         {
-            if (id == null)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (id == null)
                 return BadRequest();
 
             var department = _departmentRepo.GetById(id);
@@ -86,6 +120,9 @@ namespace ExaminationPL.Controllers
                 return NotFound();
 
             return View("Edit", departmentVM);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
 
 
@@ -93,7 +130,11 @@ namespace ExaminationPL.Controllers
 
         public IActionResult Edit(DepartmentVM departmentVM)
         {
-            if (ModelState.IsValid)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (ModelState.IsValid)
             {
                 _departmentRepo.UpdateDepartment(departmentVM);
 
@@ -102,6 +143,9 @@ namespace ExaminationPL.Controllers
 
             departmentVM.Instructors = _departmentRepo.GetAllInstructors();
             return View(departmentVM);
+            }
+            return RedirectToAction("Login", "Account");
+
 
         }
 
@@ -109,7 +153,11 @@ namespace ExaminationPL.Controllers
 
         public IActionResult Delete(int id)
         {
-            if (ModelState.IsValid)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (ModelState.IsValid)
             {
                 var department = _departmentRepo.GetById(id);
 
@@ -120,9 +168,12 @@ namespace ExaminationPL.Controllers
             }
 
             return View();
+            }
+            return RedirectToAction("Login", "Account");
+
         }
 
-       
+
 
     }
 }

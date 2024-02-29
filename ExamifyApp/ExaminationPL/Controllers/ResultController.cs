@@ -13,11 +13,14 @@ namespace ExaminationPL.Controllers
         public IActionResult Index(int id)
         {
             int? UserId = HttpContext.Session.GetInt32("UserId");
-            if(UserId != null)
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==2)
             {
-              return View(_resultRepo.Get(id, UserId));
+                return View(_resultRepo.Get(id, UserId));
             }
             return RedirectToAction("Login", "Account");
         }
-    }
+
+   
+}
 }

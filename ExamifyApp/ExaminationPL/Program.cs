@@ -18,6 +18,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 
 //Scope
+builder.Services.AddScoped<IReportRepo, ReportRepo>();
+
 builder.Services.AddScoped<IExamRepository, ExamRepository>();
 builder.Services.AddScoped<ILoginRepo, LoginManager>();
 builder.Services.AddScoped<DepartmentMapper>();

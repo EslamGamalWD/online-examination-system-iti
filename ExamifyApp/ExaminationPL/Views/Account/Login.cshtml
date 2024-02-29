@@ -26,33 +26,31 @@
 </head>
 <body>
     <div class="content">
-        <div class="container">
+        <div class=" divCont">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="~/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+                    <img src="~/ImageLogin/Online test-bro.png" alt="Image" class="img-fluid" style="margin-top:-20px">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <div class="mb-4">
-                                <h3>Login</h3>
-                                <p class="mb-4"></p>
+                            <div class="logo">
+                                <img  src="~/ImageLogin/makeblack.png" style="width:250px"  alt="Image" >
+                                
                             </div>
 
                             <form method="post" asp-controller="Account" asp-action="Login">
 
-                                <div asp-validation-summary="All" class="text-danger">
-                                </div>
 
                                 <div class="form-group first">
                                     <input type="text" class="form-control" id="username" asp-for="UserName" placeholder="User Name">
-                                    <span asp-validation-for="UserName" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="UserName" class="text-danger"></span>
 
                                 <div class="form-group last mb-4">
                                     <input type="password" class="form-control" id="password" asp-for="Password" placeholder="Password" minlength="6">
-                                    <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
 
                                 <br />
                                 <div class="d-flex mb-5 align-items-center">
@@ -66,8 +64,8 @@
 
                                 <input type="submit" value="Login" class="btn-darkLog">
 
-                                 
-                               
+
+
                             </form>
                         </div>
                     </div>
@@ -75,6 +73,7 @@
                 </div>
 
             </div>
+            
         </div>
     </div>
 
@@ -84,5 +83,8 @@
     <script src="~/js/popper.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/main.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/validation-styling.js"></script>
 </body>
 </html>

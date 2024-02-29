@@ -24,28 +24,60 @@ namespace ExaminationPL.Controllers.Admin
         }
         public IActionResult getAll()
         {
-            var Data = instructorRepo.getAllInstructor();
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                var Data = instructorRepo.getAllInstructor();
             return View(Data);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
         public IActionResult GetInstructorById(int id)
         {
-            var Data = instructorRepo.GetInstructorById(id);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                var Data = instructorRepo.GetInstructorById(id);
             return View(Data);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
         public IActionResult DeleteInstructorByID(int Id)
         {
-            instructorRepo.DeleteInstructorByID(Id);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                instructorRepo.DeleteInstructorByID(Id);
             return RedirectToAction("getAll");
+            }
+            return RedirectToAction("Login", "Account");
+
         }
         [HttpGet]
         public IActionResult InsertInstructor()
         {
-            return View();
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Account");
+
         }
         [HttpPost]
         public IActionResult InsertInstructor(InsertInstructorVM model)
         {
-            if (ModelState.IsValid)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (ModelState.IsValid)
             {
 
 
@@ -53,29 +85,46 @@ namespace ExaminationPL.Controllers.Admin
                 return RedirectToAction("getAll");
             }
             return View(model);
+            }
+            return RedirectToAction("Login", "Account");
+
 
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            if (id == null)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (id == null)
                 return NotFound();
             
             var Data = instructorRepo.GetInstructorDataById(id);
             if (Data==null)
                 return NotFound();
             return View(Data);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
         [HttpPost]
         public IActionResult Edit(EditInstractorVM model)
         {
-            if(ModelState.IsValid)
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                if (ModelState.IsValid)
             {
                 instructorRepo.Edit(model);
                 return RedirectToAction("getAll");
             }
             return View(model);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
     }
 }

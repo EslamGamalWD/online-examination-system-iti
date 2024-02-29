@@ -12,20 +12,41 @@ namespace ExaminationPL.Controllers
         }
         public IActionResult getAll()
         {
-            var Data = examRepo.GetAllExam();
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                var Data = examRepo.GetAllExam();
             return View(Data);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
 
         public IActionResult getExamById(int id)
         {
-            var data = examRepo.GetExamById(id);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                var data = examRepo.GetExamById(id);
             return View(data);
+            }
+            return RedirectToAction("Login", "Account");
+
         }
 
         public IActionResult DeleteExam(int id)
         {
-            examRepo.DeleteExam(id);
+            int? UserId = HttpContext.Session.GetInt32("UserId");
+            int? RoleID = HttpContext.Session.GetInt32("RoleId");
+            if (UserId != null && RoleID==1)
+            {
+                examRepo.DeleteExam(id);
             return RedirectToAction("getAll");
+            }
+            return RedirectToAction("Login", "Account");
+
         }
     }
 }
