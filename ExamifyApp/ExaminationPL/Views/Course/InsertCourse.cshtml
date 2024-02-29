@@ -11,17 +11,26 @@
 
           
             <div class="mb-3">
-                <label asp-for="CrsName" class="form-label">Frist Name</label>
+                <label asp-for="CrsName" class="form-label">Course Name</label>
                 <input type="text" asp-for="CrsName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <span asp-validation-for="CrsName" class="text-danger"></span>
                 <!--3-->
             </div>
             <div class="mb-3">
-                <label asp-for="CrsDuration" class="form-label">Last Name</label>
+                <label asp-for="CrsDuration" class="form-label">Duration</label>
                 <input type="text" asp-for="CrsDuration" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <span asp-validation-for="CrsDuration" class="text-danger"></span>
             </div>
-            <a onclick="addInput()" class="btn btn-dark"><i class="fa-solid fa-plus"></i></a>
+
+
+            <div class="row">
+                <div class="col-8">
+                </div>
+                <div class="col-4 text-end">
+                    <a onclick="addInput()" class="btn btn-dark p-1  m-2 pull-right">Add Topic <i class="fa-solid fa-plus"></i></a>
+
+                </div>
+            </div>
             <div id="Topic">
 
             </div>

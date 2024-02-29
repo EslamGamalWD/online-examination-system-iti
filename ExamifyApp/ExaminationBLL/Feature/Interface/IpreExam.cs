@@ -17,5 +17,7 @@ namespace ExaminationBLL.Feature.Interface
         Student GetStudentById(int? StudentId);
 
         Exam GetExamByStudentId(int id);
+
+        List<Exam> GetExamList(int? StudentId);
     }
 }

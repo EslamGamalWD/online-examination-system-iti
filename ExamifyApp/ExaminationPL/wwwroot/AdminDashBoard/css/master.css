@@ -24,12 +24,20 @@ a {
     text-decoration: none;
 }
 
-
-
-ul {
-    list-style: none;
-    padding: 0;
+.btn-log {
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
 }
+    .btn-log:hover{
+        color:white
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
 
 ::-webkit-scrollbar {
     width: 15px;

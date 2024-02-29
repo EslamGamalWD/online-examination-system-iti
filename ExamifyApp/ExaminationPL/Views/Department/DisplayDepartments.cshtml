@@ -4,8 +4,16 @@
     ViewData["Title"] = "DisplayDepartments";
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
 }
-<h1>Departments</h1>
-<a asp-controller="Department" asp-action="Create" class="btn btn-dark btn-lg" > Add Department </a>
+<div class="card m-2" style="width:60rem;margin:auto;">
+    <div class="row">
+        <div class="col-8">
+        </div>
+        <div class="col-4 text-end">
+            <a class="btn btn-outline-dark p-1  m-2 pull-right" asp-controller="Department" asp-action="Create"> <i class="fa-sharp fa-solid fa-user-plus"></i> </a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
 <table id="myTable" class="display">
     <thead>
         <tr>
@@ -45,6 +53,8 @@
         }
     </tbody>
 </table>
+</div>
+</div>
 
 @section JS {
     <script>
@@ -52,5 +62,7 @@
             $('#myTable').DataTable();
         })
     </script>
+        <partial name="~/Views/Shared/Admin/_JSDataTable.cshtml" />
+
 }
 

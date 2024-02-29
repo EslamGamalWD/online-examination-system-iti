@@ -32,7 +32,7 @@ namespace ExaminationPL.Controllers
                     if (user.RoleId == 2)
                     {
                         //Go to Pre Exam Page
-                        return RedirectToAction("PreExamView", "PreExam");
+                        return RedirectToAction("StudentProfile", "PreExam");
                     }
                     else
                     {

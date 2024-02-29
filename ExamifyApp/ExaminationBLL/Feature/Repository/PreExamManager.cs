@@ -35,5 +35,11 @@ namespace ExaminationBLL.Feature.Repository
             var exam = _context.Exams.FirstOrDefault(e => e.StId == id);
             return exam;
         }
+
+        public List<Exam> GetExamList(int? StudentId)
+        {
+            var StudentExamList = _context.Exams.Where(e => e.ExFinalGrade == null && e.StId == StudentId).ToList();
+            return StudentExamList;
+        }
     }
 }

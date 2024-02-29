@@ -9,7 +9,7 @@
 }
 
 @{
-  
+
 }
 
 <!DOCTYPE html>
@@ -82,7 +82,8 @@
         }
 
             .btn-start-exam:hover {
-                background-color: #0a1323;
+                background-color: #333;
+                color: white;
             }
     </style>
 </head>
@@ -108,10 +109,8 @@
                         <span class="value" id="current-date"></span>
                     </div>
                 </div>
-                <div class="text-center">
-                    <a asp-controller="CurrentExam" asp-action="CheckIfStudentHasExam" asp-route-id="@Model.ExId" class="btn btn-start-exam">Start Exam</a>
-                    <a asp-controller="PreExam" asp-action="StudentProfile" class="btn btn-start-exam">Profile</a>
-                </div>
+              
+
             </div>
         </div>
     </div>
@@ -131,4 +130,3 @@
 
 
 
-     

@@ -3,8 +3,14 @@
     ViewData["Title"] = "getAll";
     Layout = "~/Views/Shared/Admin/_Layout.cshtml";
 }
-
-<div class="card m-5" style="width:60rem;margin:auto;">
+<div class="card m-2" style="width:60rem;margin:auto;">
+    <div class="row">
+        <div class="col-8">
+        </div>
+        <div class="col-4 text-end">
+            <a class="btn btn-outline-dark p-1  m-2 pull-right" asp-controller="Course" asp-action="InsertCourse"> <i class="fa-regular fa-address-card"></i> </a>
+        </div>
+    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table id="myTable" class="table table-row-dashed table-row-gray-300 gy-7" style="Width:100%">
@@ -61,12 +67,15 @@
         </div>
     </div>
 </div>
+</div>
 @section JS{
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
     </script>
+    <partial name="~/Views/Shared/Admin/_JSDataTable.cshtml" />
+
 }
 
 
