@@ -6,8 +6,8 @@ Examify is a comprehensive online examination system designed to facilitate effi
 
 - **User Authentication**: Utilizes sessions for secure login authentication.
 - **Role-based Access Control**:
-  - **Student Role**: Allows students to view their profile and take exams.
-  - **Instructor Role**: Enables instructors to perform CRUD operations for Departments, Students, Exams, Questions, Answers, and Correct Exams.
+  - **Student Role**: Allows students to view their profiles and take exams.
+  - **Instructor Role**: Enables instructors to perform CRUD operations on Departments, Students, Exams, Questions, Answers, and Correct Exams.
   
 ## Technologies Used
 
@@ -15,9 +15,9 @@ Examify is a comprehensive online examination system designed to facilitate effi
 - **CSS3**: Styles the elements and enhances the user interface.
 - **Bootstrap**: Facilitates responsive design and layout.
 - **jQuery**: Enhances client-side interactivity and responsiveness.
-- **MVC (Model-View-Controller)**: Ensures a modular and organized architecture.
+- **ASP.NET Core MVC (Model-View-Controller)**: Ensures a modular and organized architecture.
 - **C#**: Powers the backend logic and functionality.
-- **Entity Framework**: Simplifies data access and management.
+- **Entity Framework Core**: Simplifies data access and management.
 - **LINQ (Language Integrated Query)**: Offers a unified way to query data from different sources.
 
 ## Installation
