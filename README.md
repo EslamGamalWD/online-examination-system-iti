@@ -1,9 +1,9 @@
 # online-examination-system-iti
 
-Installation
+## Installation
 
-Features
+## Features
 
-Technologies Used
+## Technologies Used
 
-ITI
+## ITI
