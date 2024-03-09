@@ -1,6 +1,7 @@
 # Examify - Online Examination System
 
-Examify is a comprehensive online examination system designed to facilitate efficient administration and management of exams. This system is built using HTML5, CSS3, Bootstrap, jQuery, MVC, C#, Entity Framework, and LINQ technologies to provide a seamless and user-friendly experience for both instructors and students.
+Examify is a comprehensive online examination system designed to facilitate efficient administration and management of exams. 
+This system is built using HTML5, CSS3, Bootstrap, jQuery, ASP.NET Core MVC, C#, Entity Framework Core, and LINQ to provide a seamless and user-friendly experience for both instructors and students.
 
 ## Features
 
