@@ -44,7 +44,7 @@ Examify is a comprehensive online examination system designed to facilitate effi
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the ITI License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
