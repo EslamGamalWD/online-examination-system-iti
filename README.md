@@ -36,11 +36,11 @@ Examify is a comprehensive online examination system designed to facilitate effi
 
 ## Contributors
 
-- [Eslam Gamal]
-- [Mohamed Ashraf]
-- [Mohamed Essam]
-- [Omar A.Eldesouky]
-- [Khaled Kandil]
+- [Eslam Gamal](https://github.com/EslamGamalWD)
+- [Mohamed Ashraf](https://github.com/Mohamed-Ashraf-99)
+- [Mohamed Essam](https://github.com/mo884)
+- [Omar A.Eldesouky](https://github.com/omar489)
+- [Khaled Kandil](https://github.com/khaledk123)
 
 ## License
 
